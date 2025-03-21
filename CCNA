@@ -1,0 +1,55 @@
+In This repository we do some basic configuration of router interfaces, so let just being..
+1- First of all we need to open our packet traser.
+2- Then we need go in the bottom left select network devices and drag router to the white screen. 
+3- After that we need to create a lan environment by adding a switch and Pcs in it.
+4- After that we need to connect the router with the switch and with the PCS too.
+5- Now wo start the basic configuration of Router After that we do swicth interface configuration.
+6- Code for Router:
+Router>en
+Router#config tc
+Enter configuration commands, one per line.  End with CNTL/Z	
+Router(config)#do show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   unassigned      YES unset  administratively down down 
+GigabitEthernet0/0/1   unassigned      YES unset  administratively down down 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+Router(config)# interface gigabitethernet 0/0/0
+Router(config-if)#ip address 172.168.255.254  255.255.0.0
+Router(config-if)#speed 1000
+Router(config-if)#duplex full
+Router(config-if)# no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0/0, changed state to up
+
+Router(config-if)#do show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   172.168.255.254 YES manual up                    down 
+GigabitEthernet0/0/1   unassigned      YES unset  administratively down down 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+Router(config-if)#
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+------------------------------------------------------------
+
+7- In this you can see first get in the privileged exact mode then we go to the global configuration mode. After that we use a commamd to show the IP interfaces and the Ip interfaces are all 
+down because we didnt add the IP, then we add the IP address 172.168.255.254 (thats the Lan IP). 
+8- After that we set the speed of the interface 1000.
+9- In the last we set the status up in the interface 
+10- We do this configuration Manually :) 
